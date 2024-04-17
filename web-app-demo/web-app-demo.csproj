@@ -14,6 +14,40 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.2" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.21.121" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Entidades\" />
+    <None Remove="Service\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Contexto\" />
+    <None Remove="Handlers\" />
+    <None Remove="Patterns\" />
+    <None Remove="Patterns\Result\" />
+    <None Remove="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entidades\" />
+    <Folder Include="Service\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Contexto\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Patterns\" />
+    <Folder Include="Patterns\Result\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Service\PaymentService.cs" />
+    <Compile Remove="Controllers\PaymentsController.cs" />
+    <Compile Remove="Contexto\DbDemoOracleContext.cs" />
+  </ItemGroup>
 </Project>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using web_app_demo.Entidades;
+using web_app_demo.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,36 +13,28 @@ namespace web_app_demo.Controllers
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private IUser _user;
+        private ILogger<UsersController> _logger;
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public UsersController(IUser user, ILogger<UsersController> logger)
         {
-            return "value";
+            this._user = user;
+            this._logger = logger;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IResult Post([FromBody] User value)
         {
-        }
+            _logger.LogInformation($"Procesando usuario {value.Nombre}");
+            var result = _user.CreateUserAsync(value).Result;
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            _logger.LogInformation("Traza de la ejecución del procedimiento almacenado");
+            _logger.LogInformation($"{TraceExtension.TraceFormat(result.Trace as string)}");
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return result.Match(
+                onSuccess: () => Results.Ok(result.Data),
+                onFailure: error => Results.BadRequest(error));
         }
     }
 }

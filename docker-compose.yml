@@ -1,8 +1,20 @@
 version: '3.4'
-
 services:
   web-app-demo:
-    image: ${DOCKER_REGISTRY-}webappdemo
-    build:
-      context: .
-      dockerfile: web-app-demo/Dockerfile
+    image: img-demo:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:8080
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=certificate
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - MySql__ConnectionString=Server=localhost;Database=DEMO;user=root;password=example;
+    volumes:
+      - ~/.aspnet/https:/https:ro
+    ports:
+        - "4590:8080"
+        - "4591:443"
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+          cpus: '0.5'

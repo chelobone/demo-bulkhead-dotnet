@@ -1,11 +1,12 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-preview AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-bookworm-slim-amd64 AS base
+ENV HOST 0.0.0.0
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0-preview AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["web-app-demo/web-app-demo.csproj", "web-app-demo/"]
 RUN dotnet restore "web-app-demo/web-app-demo.csproj"

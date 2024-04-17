@@ -1,5 +1,52 @@
-﻿<Properties StartupConfiguration="{6E0C0323-8D71-4D5F-8E9B-32DDB734891C}|Default">
-  <MonoDevelop.Ide.ItemProperties.web-app-demo PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" FirstBuild="True" />
-  <MultiItemStartupConfigurations />
+﻿<Properties StartupConfiguration="{5A6AED05-9660-4A40-BA80-9DFC51CD8E8A}|https">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="web-app-demo/Extensions/ResultExtensions.cs">
+    <Files>
+      <File FileName="web-app-demo/Controllers/UsersController.cs" Line="35" Column="29" />
+      <File FileName="web-app-demo/Interfaces/IUser.cs" Line="15" Column="6" />
+      <File FileName="web-app-demo/Contexto/DbDemoOracleContext.cs" />
+      <File FileName="web-app-demo/Patterns/Result/Result.cs" Line="31" Column="2" />
+      <File FileName="web-app-demo/Patterns/Result/Error.cs" Line="1" Column="1" />
+      <File FileName="web-app-demo/Controllers/PaymentsController.cs" />
+      <File FileName="web-app-demo/Program.cs" Line="20" Column="1" />
+      <File FileName="web-app-demo/Service/UserService.cs" Line="63" Column="33" />
+      <File FileName="web-app-demo/Extensions/TraceExtension.cs" />
+      <File FileName="web-app-demo/Extensions/ResultExtensions.cs" Line="6" Column="21" />
+      <File FileName="../../.microsoft/usersecrets/caa7b22a-ac5a-4c93-8fb0-a7f2072ac0d7/secrets.json" />
+      <File FileName="web-app-demo/Contexto/DbDemoContext.cs" />
+      <File FileName="web-app-demo/Dockerfile" />
+      <File FileName="web-app-demo/Entidades/User.cs" />
+      <File FileName="web-app-demo/appsettings.json" />
+      <File FileName="web-app-demo/Entidades/RequestPayment.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="web-app-demo" expanded="True">
+            <Node name="docker-compose" expanded="True" />
+            <Node name="web-app-demo" expanded="True" selected="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Entidades" expanded="True" />
+              <Node name="Extensions" expanded="True" />
+              <Node name="Handlers" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Patterns" expanded="True">
+                <Node name="Result" expanded="True" />
+              </Node>
+              <Node name="Service" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/marcelofrizgonzalez/Projects/web-app-demo/web-app-demo/Service/PaymentService.cs" relfile="web-app-demo/Service/PaymentService.cs" line="63" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.web-app-demo PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>

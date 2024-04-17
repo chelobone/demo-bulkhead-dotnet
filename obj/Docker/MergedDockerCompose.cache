@@ -1,0 +1,53 @@
+name: dockercompose7319263708987665800
+services:
+  web-app-demo:
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "104857600"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_Kestrel__Certificates__Default__Password: certificate
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /https/aspnetapp.pfx
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: img-demo:latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      published: "4591"
+      protocol: tcp
+    - mode: ingress
+      target: 8080
+      published: "4590"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: /Users/marcelofrizgonzalez/.aspnet/https
+      target: /https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: /Users/marcelofrizgonzalez/.aspnet/https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: /Users/marcelofrizgonzalez/.microsoft/usersecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose7319263708987665800_default
