@@ -31,7 +31,6 @@ builder.Services.AddTransient<IUser, UserService>();
 builder.Services.AddTransient<IUserContext, DbDemoContext>();
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
 
